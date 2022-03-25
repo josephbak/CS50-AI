@@ -23,7 +23,7 @@ S -> NP VP Adv Conj VP
 S -> S Conj VP PP
 
 AP -> Adj | Adj AP
-NP -> N | Det N | AP NP | N PP | Det AP N
+NP -> N | Det N | AP N | N P | Det AP N
 PP -> P NP
 VP -> V | V NP | V NP PP
 """
@@ -87,7 +87,11 @@ def np_chunk(tree):
     whose label is "NP" that does not itself contain any other
     noun phrases as subtrees.
     """
-    return []
+    np_chunk_list = []
+    for s in tree.subtrees():
+        if s.label() == 'NP':
+            np_chunk_list.append(s)
+    return np_chunk_list
 
 
 if __name__ == "__main__":

@@ -1,8 +1,5 @@
-from multiprocessing.reduction import duplicate
 import sys
 import copy
-
-from sqlalchemy import distinct
 
 from crossword import *
 

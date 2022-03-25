@@ -144,6 +144,7 @@ def iterate_pagerank(corpus, damping_factor):
             temp = copy.deepcopy(proba_dist_dict)
             # print(temp)
 
+    # print(sum(proba_dist_dict.values()))
     return proba_dist_dict
 
 ######my functions
