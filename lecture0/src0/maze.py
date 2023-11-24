@@ -6,7 +6,7 @@ class Node():
         self.parent = parent
         self.action = action
 
-
+# Deapth First Search
 class StackFrontier():
     def __init__(self):
         self.frontier = []
@@ -28,7 +28,7 @@ class StackFrontier():
             self.frontier = self.frontier[:-1]
             return node
 
-
+# Breadth First Search
 class QueueFrontier(StackFrontier):
 
     def remove(self):
@@ -115,7 +115,7 @@ class Maze():
                 result.append((action, (r, c)))
         return result
 
-
+    # This function figures out how to get from A to B
     def solve(self):
         """Finds a solution to maze, if one exists."""
 
@@ -124,7 +124,8 @@ class Maze():
 
         # Initialize frontier to just the starting position
         start = Node(state=self.start, parent=None, action=None)
-        frontier = QueueFrontier() # This part controls which search algorithm is used. StackFrontier: DFS, QueueFrontier:BFS.
+        # This part controls which search algorithm is used. StackFrontier: DFS, QueueFrontier:BFS.
+        frontier = StackFrontier() 
         frontier.add(start)
 
         # Initialize an empty explored set
@@ -145,6 +146,8 @@ class Maze():
             if node.state == self.goal:
                 actions = []
                 cells = []
+
+                # Follow parent noeds to find solution
                 while node.parent is not None:
                     actions.append(node.action)
                     cells.append(node.state)
