@@ -28,7 +28,7 @@ def check_knowledge(knowledge):
             print(f"{symbol}: MAYBE")
 
 
-# There must be a person, room, and weapon.
+# There must have been a person, room, and weapon.
 knowledge = And(
     Or(mustard, plum, scarlet),
     Or(ballroom, kitchen, library),
