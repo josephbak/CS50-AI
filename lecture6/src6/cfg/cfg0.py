@@ -1,5 +1,6 @@
 import nltk
 
+# cfg stands for context free grammar
 grammar = nltk.CFG.fromstring("""
     S -> NP VP
 
@@ -17,6 +18,6 @@ sentence = input("Sentence: ").split()
 try:
     for tree in parser.parse(sentence):
         tree.pretty_print()
-        tree.draw()
+        # tree.draw()
 except ValueError:
     print("No parse tree possible.")
